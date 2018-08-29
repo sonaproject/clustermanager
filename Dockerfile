@@ -1,7 +1,5 @@
-FROM golang:1.8
+FROM golang:1.11-alpine
+COPY . /go/src/app
 WORKDIR /go/src/app
-RUN git clone https://github.com/sonaproject/clustermanager.git
-WORKDIR /go/src/app/clustermanager
 RUN go build
-CMD /go/src/app/clustermanager/clustermanager 9292
-
+CMD /go/src/app/clustermanager 9292
